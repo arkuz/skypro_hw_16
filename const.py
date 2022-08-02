@@ -12,3 +12,4 @@ class ErrorCode:
 class ErrorMessage:
     """Пользовательские сообщения об ошибках"""
     EMPTY_RESULT = {'type': 'error', 'message': 'Empty result'}
+    INVALID_JSON = {'type': 'error', 'message': 'Invalid JSON data'}

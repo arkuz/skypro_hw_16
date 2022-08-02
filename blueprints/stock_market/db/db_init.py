@@ -7,6 +7,8 @@ from blueprints.stock_market.models.stock_market import (User,
                                                          Order,
                                                          Offer)
 
+from config import read_env
+
 FIXTURES_DIR = os.path.join(BASE_DIR, 'blueprints', 'stock_market', 'db', 'fixtures')
 OFFERS_DIR = os.path.join(FIXTURES_DIR, 'offers.json')
 ORDERS_DIR = os.path.join(FIXTURES_DIR, 'orders.json')
@@ -57,7 +59,8 @@ def add_offers() -> None:
 
 
 def init_db() -> None:
-    app = create_app()
+    config = read_env()
+    app = create_app(config)
     with app.app_context():
         db.drop_all()
         db.create_all()
